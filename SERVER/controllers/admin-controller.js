@@ -10,7 +10,7 @@ const getContactData=async(req,res)=>{
         }
         return res.status(200).json({message:contacts});
     } catch (error) {
-        next(error);
+        res.status(500).json({message:"Internal Server Error"});
     }
 };
 
@@ -24,7 +24,7 @@ const deleContactsById=async(req,res)=>{
     res.status(200).json({message:"Contact  successfully deleted"});
         
     } catch (error) {
-        next(error);
+        res.status(500).json({message:"Internal Server Error"});
     }
     
 };
@@ -56,7 +56,7 @@ const deleteCourseById=async(req,res)=>{
     res.status(200).json({message:"Course successfully deleted"});
         
     } catch (error) {
-        next(error);
+        res.status(500).json({message:"Internal Server Error"});
     }
 }
 
@@ -67,7 +67,7 @@ const getCourseById=async(req,res)=>{
         const data=await Course.findOne({_id:courseId},{title:1,content:1});
         return res.status(200).json({message:data});
     } catch (error) {
-      next(error);
+        res.status(500).json({message:"Internal Server Error"});
     }
 };
 
@@ -75,12 +75,13 @@ const updateCourseById=async(req,res)=>{
     try {
         const courseId=req.params.id;
     const updatedData=req.body;
-    const updateTheData=await Course.updateOne({_id:courseId},{$set:updatedData});
+    await Course.updateOne({_id:courseId},{$set:updatedData});
+    
 
     return res.status(200).json({message:"Data update Successfully"});
 
     } catch (error) {
-        next(error);
+        res.status(500).json({message:"Internal Server Error"});
     }
     
 }

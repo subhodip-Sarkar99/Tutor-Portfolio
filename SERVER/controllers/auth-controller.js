@@ -51,7 +51,7 @@ const adminLogin= async (req,res)=>{
         }
         
     } catch (error) {
-        next(error);
+        res.status(500).json({message:"Internal Server Error"});
     }
 }
 
@@ -64,7 +64,8 @@ const admin= async(req,res)=>{
         return res.status(200).json({adminData}); //Passing data to front end
 
     } catch (error) {
-        console.log("error from the user route" ,error);
+        //console.log("error from the user route" ,error);
+        res.status(500).json({message:"Internal Server Error"});
     }
 };
 
