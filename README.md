@@ -18,3 +18,16 @@ cd server && node server.js
 cd client && npm run dev
 
 6.Access the application in your web browser at http://localhost:5173.
+
+*** TO GAIN ADMIN ACCESS ***
+1.Uncomment the 'router.route("/reg")' route in user-route.js.
+
+2.Ctrl+Click on authcontroller.genpass.
+
+3.Uncomment gen pass in authController.
+
+4.Goto admin-model and uncomment "adminSchema.pre".
+
+5.Hit the route "http://localhost:5173/api/admin/reg" and create a admin.
+
+6.Visit @ http://localhost:5173/kFqHj to access admin dashboard.
