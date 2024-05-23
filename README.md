@@ -19,6 +19,8 @@ cd client && npm run dev
 
 6.Access the application in your web browser at http://localhost:5173.
 
+
+
 *** TO GAIN ADMIN ACCESS ***
 
 1.Uncomment the 'router.route("/reg")' route in user-route.js.
